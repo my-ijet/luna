@@ -8,7 +8,7 @@ option(ENABLE_LTO "Enable Link Time Optimization (LTO) in Release mode" OFF)
 
 add_executable(${PROJECT_NAME}
     src/main.c
-    src/base.c
+    src/_i_base.c
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE thirdparty)
