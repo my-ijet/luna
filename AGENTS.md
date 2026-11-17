@@ -9,6 +9,7 @@
 
 ## Стек и стандарты
 
+- **Цель:** компилятор языка Luna в Lua-код с использованием LuaJIT
 - **Язык:** C23 (`CMAKE_C_STANDARD 23`), `defer { }` из `base.h` для автоматического освобождения ресурсов
 - **CMake:** 3.10+, CMake presets (`CMakePresets.json`), Ninja-генератор, сборки в `build/debug/` и `build/release/`
 - **Третий код:** `thirdparty/base.h` — arena, string, defer. Реализация через `src/base.c`. `thirdparty/stc/coption.h` — парсинг аргументов CLI.

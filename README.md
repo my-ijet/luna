@@ -1,6 +1,6 @@
 # luna
 
-Luna is a better Lua
+Compiler for the Luna language to Lua, targeting LuaJIT.
 
 ## Build
 

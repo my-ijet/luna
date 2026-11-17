@@ -4,6 +4,8 @@
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
+    defer { printf("Bye!\n"); };
+
     coption_long longopts[] = {
         {"help", coption_no_argument, 'h'},
         {"name", coption_required_argument, 'n'},
@@ -17,19 +19,18 @@ int main(int argc, char *argv[]) {
         switch (c) {
             case 'h':
                 printf("Usage: %s [-h] [-n NAME]\n", argv[0]);
-                break;
+            break;
             case 'n':
                 printf("Hello, %s!\n", opt.arg);
-                break;
+            break;
             case '?':
                 printf("Unknown option: %s\n", opt.optstr);
-                break;
+            break;
             case ':':
                 printf("Missing argument for %s\n", opt.optstr);
-                break;
+            break;
         }
     }
 
-    printf("Hello, world!\n");
     return 0;
 }
