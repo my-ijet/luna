@@ -29,8 +29,9 @@
 ```
 dir/
 ├── CMakeLists.txt
-├── AGENTS.md
 ├── CMakePresets.json
+├── Makefile
+├── AGENTS.md
 ├── thirdparty/
 │   └── base.h
 ├── src/
