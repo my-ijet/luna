@@ -20,6 +20,9 @@ cmake --preset release && cmake --build build/release
 ```bash
 ./build/debug/luna
 ./build/release/luna
+
+./build/debug/luna --help
+./build/debug/luna --name NAME
 ```
 
 ## Tags

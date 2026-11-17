@@ -1,17 +1,35 @@
 #include "base.h"
+#include <stc/coption.h>
 
 #include <stdio.h>
 
+int main(int argc, char *argv[]) {
+    coption_long longopts[] = {
+        {"help", coption_no_argument, 'h'},
+        {"name", coption_required_argument, 'n'},
+        {0}
+    };
+    const char *optstr = "hn:";
 
-int main(void) {
-    arena a = {0};
-    defer { arena_release(&a); }
+    coption opt = coption_init();
+    int c;
+    while ((c = coption_get(&opt, argc, argv, optstr, longopts)) != -1) {
+        switch (c) {
+            case 'h':
+                printf("Usage: %s [-h] [-n NAME]\n", argv[0]);
+                break;
+            case 'n':
+                printf("Hello, %s!\n", opt.arg);
+                break;
+            case '?':
+                printf("Unknown option: %s\n", opt.optstr);
+                break;
+            case ':':
+                printf("Missing argument for %s\n", opt.optstr);
+                break;
+        }
+    }
 
-    string greeting = S("Hello, world!");
-    printf("[" STR_FMT "]\n", STR_ARG(greeting));
-
-    string upper = string_upper(&a, greeting);
-    printf("[" STR_FMT "]\n", STR_ARG(upper));
-
+    printf("Hello, world!\n");
     return 0;
 }
